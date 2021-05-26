@@ -7,8 +7,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 class KartListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //final kartController = Modular.get<KartController>();
-    //print(kartController);
+    final kartController = Modular.get<KartController>();
+    print(kartController);
+    
     return Expanded(
       flex: 10,
       child: Column(
@@ -32,7 +33,7 @@ class KartListWidget extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-              itemCount: 10,
+              itemCount: kartController.kart.length,
               separatorBuilder: (context, index) => SizedBox(height: 0),
               itemBuilder: (context, index) {
                 return Container(
@@ -60,7 +61,7 @@ class KartListWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               TextComponent(
-                                text: "Nome ",
+                                text: "${kartController.kart[index]['nome']}",
                                 color: Colors.black,
                                 fontSize: 20,
                               ),
@@ -73,7 +74,7 @@ class KartListWidget extends StatelessWidget {
                                     color: Color(0xFF3bd087),
                                     fontSize: 16,
                                   ),
-                                  QuantityProductWidget(),
+                                  QuantityProductWidget(idProd: kartController.kart[index]['id'],index: index,),
                                   TextComponent(
                                     text: "R\$24,99",
                                     color: Colors.green,

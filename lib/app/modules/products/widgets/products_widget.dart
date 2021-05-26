@@ -81,7 +81,7 @@ class ProductsWidget extends StatelessWidget {
                                             fontSize: 12,
                                           ),
                                         ),
-                                        QuantityProductWidget(idProd:productsData[index]['id']),
+                                        QuantityProductWidget(idProd:productsData[index]['id'], index: index),
                                       ],
                                     ),
                                     TextComponent(

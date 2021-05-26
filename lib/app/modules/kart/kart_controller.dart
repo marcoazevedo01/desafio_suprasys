@@ -5,40 +5,32 @@ class KartController = _KartControllerBase with _$KartController;
 
 abstract class _KartControllerBase with Store {
   @observable
-  Map kart = {};
+  List kart = [];
 
   @observable
   int itens = 0;
 
-  @observable
-  int qnt = 0;
-
   @action
   void addProduct(int id) {
-    if (kart['id'] == null) {
+    if ((kart.isNotEmpty) && ([...kart].any((el) => el['id'] == id))) {
+      var prod = [...kart].firstWhere((el) => el['id'] == id);
+      prod['qnt']++;
+    } else { 
       itens++;
+      kart.add({'id': id, 'qnt': 1});
     }
-    qnt++;
-    kart['id'] = id;
-    kart['qnt'] = qnt;
     print(kart);
   }
 
   @action
   void removeProduct(int id) {
-    if (qnt == 0) {
+    var prod = [...kart].firstWhere((el) => el['id'] == id);
+    if ((itens > 0) && (prod['qnt'] > 1)) {
+      prod['qnt']--;
+    } else { 
       itens--;
-    } else {
-      qnt--;
-      kart['id'] = id;
-      kart['qnt'] = qnt;
-      print(kart);
+      kart.removeWhere((elem) => elem['id'] == id);
     }
+    print(kart);
   }
-
-/* estrutura q preciso
-  var obj = {'id': 0,'qnt':0}
-  acessar percorrer e para att a qnt
-*/
-
 }

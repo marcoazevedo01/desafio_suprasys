@@ -39,8 +39,9 @@ class DescriptionClientWidget extends StatelessWidget {
                 } else {
                   List saleData = snapshot.data;
                   return ListView.separated(
+                    padding: EdgeInsets.all(8),
                     itemCount: saleData.length,
-                    separatorBuilder: (context, index) => SizedBox(height: 05),
+                    separatorBuilder: (context, index) => SizedBox(height: 09),
                     itemBuilder: (context, index) {
                       return Container(
                         padding: EdgeInsets.only(left: 10, right: 10),

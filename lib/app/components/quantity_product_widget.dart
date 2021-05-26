@@ -1,10 +1,13 @@
 import 'package:desafio_suprasys/app/modules/kart/kart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class QuantityProductWidget extends StatefulWidget {
   final int idProd;
-  const QuantityProductWidget({Key key, this.idProd}) : super(key: key);
+  final int index;
+  const QuantityProductWidget({Key key, this.idProd, this.index})
+      : super(key: key);
   @override
   _QuantityProductWidgetState createState() => _QuantityProductWidgetState();
 }
@@ -12,7 +15,7 @@ class QuantityProductWidget extends StatefulWidget {
 class _QuantityProductWidgetState extends State<QuantityProductWidget> {
   @override
   Widget build(BuildContext context) {
-    final kartController = KartController();
+    final kartController = Modular.get<KartController>();
     var size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(right: size.width / 150),
@@ -62,7 +65,7 @@ class _QuantityProductWidgetState extends State<QuantityProductWidget> {
               alignment: Alignment.center,
               child: Observer(
                 builder: (_) => Text(
-                  '${kartController.qnt}',
+                  '${kartController.kart[widget.index]['qnt']}',
                   style: const TextStyle(fontSize: 20),
                 ),
               ),

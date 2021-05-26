@@ -12,13 +12,13 @@ mixin _$KartController on _KartControllerBase, Store {
   final _$kartAtom = Atom(name: '_KartControllerBase.kart');
 
   @override
-  Map<dynamic, dynamic> get kart {
+  List<dynamic> get kart {
     _$kartAtom.reportRead();
     return super.kart;
   }
 
   @override
-  set kart(Map<dynamic, dynamic> value) {
+  set kart(List<dynamic> value) {
     _$kartAtom.reportWrite(value, super.kart, () {
       super.kart = value;
     });
@@ -36,21 +36,6 @@ mixin _$KartController on _KartControllerBase, Store {
   set itens(int value) {
     _$itensAtom.reportWrite(value, super.itens, () {
       super.itens = value;
-    });
-  }
-
-  final _$qntAtom = Atom(name: '_KartControllerBase.qnt');
-
-  @override
-  int get qnt {
-    _$qntAtom.reportRead();
-    return super.qnt;
-  }
-
-  @override
-  set qnt(int value) {
-    _$qntAtom.reportWrite(value, super.qnt, () {
-      super.qnt = value;
     });
   }
 
@@ -83,8 +68,7 @@ mixin _$KartController on _KartControllerBase, Store {
   String toString() {
     return '''
 kart: ${kart},
-itens: ${itens},
-qnt: ${qnt}
+itens: ${itens}
     ''';
   }
 }
