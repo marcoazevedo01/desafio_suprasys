@@ -39,7 +39,7 @@ mixin _$KartController on _KartControllerBase, Store {
   }
 
   @override
-  void closeKart() {
+  dynamic closeKart() {
     final _$actionInfo = _$_KartControllerBaseActionController.startAction(
         name: '_KartControllerBase.closeKart');
     try {

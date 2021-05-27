@@ -9,8 +9,7 @@ class BottomNavigationBarComponent extends StatelessWidget {
     final kartController = Modular.get<KartController>();
     return GestureDetector(
       onTap: () {
-        kartController.closeKart();
-        Modular.to.navigate('/concluded');
+        kartController.closeKart() == true ? Modular.to.navigate('/concluded') : Modular.to.popAndPushNamed('/kart');
       },
       child: Container(
         child: Center(

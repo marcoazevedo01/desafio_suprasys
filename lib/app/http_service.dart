@@ -5,8 +5,6 @@ class HttpService {
   String url = '152.67.60.71:8084';
   String username = 'recrutamento';
   String password = 'recrutamento';
-  //List<Product> product = List();
- 
 
   Future get_service(String path) async {
     var headers = {
@@ -18,10 +16,17 @@ class HttpService {
     return jsonDecode(response.body)['result'];
   }
 
-  Future post_Obj(Object obj, path) async {
-    var headers = {"Content-Type": "application/json"};
+  Future post_Obj(obj, path) async {
+    var msg = jsonEncode(obj);
+
+    var headers = {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      'Authorization':
+          'Basic ' + base64Encode(utf8.encode('$username:$password'))
+    };
     var response =
-        await http.post(Uri.http(url, path), headers: headers, body: obj);
+        await http.post(Uri.http(url, path), headers: headers, body: msg);
+
     return jsonDecode(response.body);
   }
 }

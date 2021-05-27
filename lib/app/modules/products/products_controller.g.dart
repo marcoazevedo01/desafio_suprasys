@@ -73,6 +73,17 @@ mixin _$ProductsController on _ProductsControllerBase, Store {
   }
 
   @override
+  dynamic formatList() {
+    final _$actionInfo = _$_ProductsControllerBaseActionController.startAction(
+        name: '_ProductsControllerBase.formatList');
+    try {
+      return super.formatList();
+    } finally {
+      _$_ProductsControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void clearList() {
     final _$actionInfo = _$_ProductsControllerBaseActionController.startAction(
         name: '_ProductsControllerBase.clearList');

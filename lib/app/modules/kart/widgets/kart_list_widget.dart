@@ -9,6 +9,7 @@ class KartListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productsController = Modular.get<ProductsController>();
+    final kart = productsController.productList;
     return Expanded(
       flex: 10,
       child: Column(
@@ -33,11 +34,10 @@ class KartListWidget extends StatelessWidget {
           Expanded(
             child: Observer(
               builder: (context) => ListView.separated(
-                itemCount: productsController.productList.length,
+                itemCount: kart.length,
                 separatorBuilder: (context, index) => SizedBox(height: 0),
                 itemBuilder: (context, index) {
-                  var kart = productsController.productList;
-                  if (kart[index].quantidade > 0) {
+                  if (kart[index].quantidade != 0) {
                     return Container(
                       padding: EdgeInsets.only(
                         left: 10,
@@ -72,7 +72,8 @@ class KartListWidget extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       TextComponent(
-                                        text: "R\$${kart[index].valor - kart[index].desconto}",
+                                        text:
+                                            "R\$${kart[index].valor - kart[index].desconto}",
                                         color: Color(0xFF3bd087),
                                         fontSize: 16,
                                       ),
@@ -97,6 +98,8 @@ class KartListWidget extends StatelessWidget {
                         ],
                       ),
                     );
+                  } else {
+                    return Container();
                   }
                 },
               ),

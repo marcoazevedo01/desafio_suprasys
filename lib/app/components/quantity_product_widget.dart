@@ -1,5 +1,4 @@
 import 'package:desafio_suprasys/app/modules/products/products_controller.dart';
-import 'package:desafio_suprasys/app/modules/products/products_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -13,7 +12,6 @@ class QuantityProductWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productsController = Modular.get<ProductsController>();
-    var model = ProductModel();
     var size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(right: size.width / 150),

@@ -61,6 +61,11 @@ abstract class _ProductsControllerBase with Store {
   }
 
   @action
+  formatList() {
+    return productList.where((el) => el.quantidade != 0);
+  }
+
+  @action
   void clearList() {
     productList.clear();
     kartController.clearTotal();
