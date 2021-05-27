@@ -6,22 +6,10 @@ class ListCategoriesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     int indexColor = 0;
     final colorList = <Color>[
-      Color(0xFFfff5f4),
-      Color(0xFFd2d1ff),
-      Color(0xFFffd8d9),
-      Color(0xFFfff9e1),
       Color(0xFFd4f1ff),
-      Color(0xFFcfffe2),
-      Color(0xFFffe2c8),
     ];
     final colorListFont = <Color>[
-      Color(0xFFe0613c),
-      Color(0xFF9c78d3),
-      Color(0xFFcf4125),
-      Color(0xFFeeaa48),
-      Color(0xFF44aae0),
-      Color(0xFF30b776),
-      Color(0xFFe15d2b),
+      Color(0xFF44aae0),    
     ];
     return Expanded(
       flex: 2,

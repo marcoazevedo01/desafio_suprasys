@@ -8,17 +8,12 @@ class StablishmentsHomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final clientController = Modular.get<ClientController>();
-    Future clients = HttpService.get_service('/api/cliente/listar');
+      final HttpService httpService = HttpService();
+    Future clients = httpService.get_service('/api/cliente/listar');
     final size = MediaQuery.of(context).size;
     int indexColor = 0;
-    final colorList = <Color>[
-      Color(0xFFfff5f4),
-      Color(0xFFd2d1ff),
-      Color(0xFFffd8d9),
-      Color(0xFFfff9e1),
-      Color(0xFFd4f1ff),
-      Color(0xFFcfffe2),
-      Color(0xFFffe2c8),
+    final colorList = <Color>[ 
+      Color(0xFFd4f1ff),  
     ];
     return Expanded(
       flex: 10,

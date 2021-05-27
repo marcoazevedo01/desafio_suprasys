@@ -1,21 +1,19 @@
-import 'package:desafio_suprasys/app/modules/kart/kart_controller.dart';
+import 'package:desafio_suprasys/app/modules/products/products_controller.dart';
+import 'package:desafio_suprasys/app/modules/products/products_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class QuantityProductWidget extends StatefulWidget {
-  final int idProd;
-  final int index;
-  const QuantityProductWidget({Key key, this.idProd, this.index})
+class QuantityProductWidget extends StatelessWidget {
+  final item;
+  final index;
+  const QuantityProductWidget({Key key, this.item, this.index})
       : super(key: key);
-  @override
-  _QuantityProductWidgetState createState() => _QuantityProductWidgetState();
-}
 
-class _QuantityProductWidgetState extends State<QuantityProductWidget> {
   @override
   Widget build(BuildContext context) {
-    final kartController = Modular.get<KartController>();
+    final productsController = Modular.get<ProductsController>();
+    var model = ProductModel();
     var size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.only(right: size.width / 150),
@@ -42,7 +40,7 @@ class _QuantityProductWidgetState extends State<QuantityProductWidget> {
                   size: 20,
                 ),
                 onPressed: () {
-                  kartController.removeProduct(widget.idProd);
+                  productsController.removeProduct(item);
                 },
               ),
               decoration: BoxDecoration(
@@ -65,7 +63,7 @@ class _QuantityProductWidgetState extends State<QuantityProductWidget> {
               alignment: Alignment.center,
               child: Observer(
                 builder: (_) => Text(
-                  '${kartController.kart[widget.index]['qnt']}',
+                  '${productsController.productList[index].quantidade}',
                   style: const TextStyle(fontSize: 20),
                 ),
               ),
@@ -80,7 +78,7 @@ class _QuantityProductWidgetState extends State<QuantityProductWidget> {
                   size: 20,
                 ),
                 onPressed: () {
-                  kartController.addProduct(widget.idProd);
+                  productsController.addProduct(item);
                 },
               ),
               decoration: BoxDecoration(

@@ -4,6 +4,7 @@ import 'package:desafio_suprasys/app/modules/kart/kart_page.dart';
 import 'package:desafio_suprasys/app/modules/infoClient/client_controller.dart';
 import 'package:desafio_suprasys/app/modules/infoClient/client_page.dart';
 import 'package:desafio_suprasys/app/modules/kart/widgets/alert_widget.dart';
+import 'package:desafio_suprasys/app/modules/products/products_controller.dart';
 import 'package:desafio_suprasys/app/modules/products/products_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -13,6 +14,7 @@ class AppModule extends Module {
   @override
   List<Bind> get binds => [
     Bind((i) => ClientController()),
+    Bind((i) => ProductsController()),
     Bind((i) => KartController()),
   ];
 

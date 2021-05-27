@@ -1,4 +1,6 @@
 import 'package:desafio_suprasys/app/modules/kart/kart_controller.dart';
+import 'package:desafio_suprasys/app/modules/products/products_controller.dart';
+import 'package:desafio_suprasys/app/modules/products/products_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -6,7 +8,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 class FloatingActionButtonComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final kartController = Modular.get<KartController>();
+    final productsController = Modular.get<ProductsController>();
     return Stack(
       children: [
         FloatingActionButton(
@@ -27,7 +29,7 @@ class FloatingActionButtonComponent extends StatelessWidget {
             width: 22,
             child: Observer(
               builder: (_) => Text(
-                '${kartController.itens}',
+                '${productsController.itens}',
                 style: const TextStyle(
                   fontSize: 10,
                   color: Colors.white,

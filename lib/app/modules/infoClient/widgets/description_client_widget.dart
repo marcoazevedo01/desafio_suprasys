@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 class DescriptionClientWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future sale = HttpService.get_service('/api/venda/listar');
+    Future sale = HttpService().get_service('/api/venda/listar');
     return Expanded(
       flex: 4,
       child: Column(
@@ -72,7 +72,9 @@ class DescriptionClientWidget extends StatelessWidget {
                                               color: Colors.blue,
                                             ),
                                             TextComponent(
-                                              text: DateFormat("dd/MM/yyyy").format(DateTime.parse(saleData[index]['data'])),
+                                              text: DateFormat("dd/MM/yyyy")
+                                                  .format(DateTime.parse(
+                                                      saleData[index]['data'])),
                                               color: Colors.black,
                                               fontSize: 19,
                                             ),
@@ -85,7 +87,8 @@ class DescriptionClientWidget extends StatelessWidget {
                                               color: Colors.green,
                                             ),
                                             TextComponent(
-                                              text: "${saleData[index]['total']}",
+                                              text:
+                                                  "${saleData[index]['total']}",
                                               color: Colors.black,
                                               fontSize: 19,
                                             ),
@@ -114,7 +117,8 @@ class DescriptionClientWidget extends StatelessWidget {
                                           fontSize: 12,
                                         ),
                                         TextComponent(
-                                          text: "itens: ${saleData[index]['itens'].length}",
+                                          text:
+                                              "itens: ${saleData[index]['itens'].length}",
                                           color: Color(0xFF767587),
                                           fontSize: 12,
                                         ),

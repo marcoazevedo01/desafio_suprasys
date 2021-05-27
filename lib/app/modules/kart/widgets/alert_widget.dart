@@ -1,9 +1,11 @@
+import 'package:desafio_suprasys/app/modules/products/products_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AlertWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final productsController = Modular.get<ProductsController>();
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
@@ -29,7 +31,10 @@ class AlertWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         ElevatedButton(
-                          onPressed: () => Modular.to.navigate('/home'),
+                          onPressed: () {
+                            productsController.clearList();
+                            Modular.to.navigate('/home');
+                          },
                           child: Text('Nova venda'),
                         )
                       ],
