@@ -17,15 +17,13 @@ class HttpService {
   }
 
   Future post_Obj(obj, path) async {
-    var msg = jsonEncode(obj);
-
     var headers = {
-      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      "Content-Type": "application/json",
       'Authorization':
           'Basic ' + base64Encode(utf8.encode('$username:$password'))
     };
     var response =
-        await http.post(Uri.http(url, path), headers: headers, body: msg);
+        await http.post(Uri.http(url, path), headers: headers, body: json.encode(obj));
 
     return jsonDecode(response.body);
   }

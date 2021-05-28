@@ -62,7 +62,17 @@ abstract class _ProductsControllerBase with Store {
 
   @action
   formatList() {
-    return productList.where((el) => el.quantidade != 0);
+    var arry = [];
+    for(var elem in productList.where((el) => el.quantidade != 0)){
+      arry.add({
+        "produto":{"id":elem.id},
+        "quantidade": elem.quantidade,
+        "valor": elem.valor,
+        "desconto": elem.desconto,
+        "total": elem.total
+      }); 
+    }
+    return arry;
   }
 
   @action
