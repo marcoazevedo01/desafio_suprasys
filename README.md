@@ -1,16 +1,8 @@
 # desafio_suprasys
 
-A new Flutter application.
+Screenshots
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/marcoazevedo01/desafio_suprasys/blob/master/screenshots/54cacb43-03ca-4048-afe5-0fe993babffd.jpg" width="350" height="600">
+<img src="https://github.com/marcoazevedo01/desafio_suprasys/blob/master/screenshots/2d95d5ba-4047-43ac-801b-cccafa0cc874.jpg" width="350" height="600">
+<img src="https://github.com/marcoazevedo01/desafio_suprasys/blob/master/screenshots/4faa9309-1648-407c-bfed-f2d32eefffe2.jpg" width="350" height="600">
+<img src="https://github.com/marcoazevedo01/desafio_suprasys/blob/master/screenshots/74d7f133-e39d-4b2f-847f-515e92527f69.jpg" width="350" height="600">
