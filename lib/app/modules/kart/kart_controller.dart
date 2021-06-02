@@ -17,7 +17,7 @@ abstract class _KartControllerBase with Store {
     clearTotal();
     list.forEach((element) {
       if (element.quantidade != 0) {
-        totalKart += element.total;
+        totalKart += element.total;    
       }
     });
   }
@@ -25,7 +25,6 @@ abstract class _KartControllerBase with Store {
   @action
   closeKart() async {
     HttpService httpService = HttpService();
-    final kartController = Modular.get<KartController>();
     final productsController = Modular.get<ProductsController>();
     final clientController = Modular.get<ClientController>();
     final DateTime now = DateTime.now();
@@ -33,14 +32,14 @@ abstract class _KartControllerBase with Store {
     var obj = {
       "cliente": {"id": clientController.userClient['id']},
       "data": formatter.format(now),
-      "valor": kartController.totalKart, //TODO acumular o desconto em outra var
+      "valor": totalKart, //TODO acumular o desconto em outra var
       "desconto": 0,
-      "total": kartController.totalKart,
+      "total": totalKart,
       "itens": productsController.formatList()
     };
     var resp = await httpService.post_Obj(obj, '/api/venda/gravar');
     if (resp['status'] == 200) {
-      return 'true';
+      return true;
     } else {
       return null;
     }
